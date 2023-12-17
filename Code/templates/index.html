@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("https://th.bing.com/th/id/OIG.SAhlda6BwXIw1HZztPL2?pid=ImgGn");
+       
+            background-repeat: no-repeat;
+            background-size: 1707px 950px;
+           
+        }
+        .footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: #ffdd99;
+          color: green;
+          text-align: center;
+          padding: 5px;
+          box-shadow: 0 4px 8px 8px rgba(0, 0, 0, 0.7), /* Increased shadow opacity */
+            0 6px 20px 0 rgba(0, 0, 0, 0.7); /* Increased shadow opacity */
+      }
+      .footer-icons {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+      }
+        .navbar-custom {
+            background-color: #ffdd99;
+            color: green;
+            align-items: flex;
+            justify-content: flex;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), /* Increased shadow opacity */
+            0 6px 20px 0 rgba(0, 0, 0, 0.7); /* Increased shadow opacity */
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text,
+        .navbar-custom .navbar-nav .nav-link {
+            color: green;
+            
+        }
+
+        .container {
+            background-color: #ffdd99;
+            color: green;
+            padding: 40px;
+            border-radius: 25px;
+            margin-top: 130px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>CodeSensei</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://th.bing.com/th/id/OIG.Cw28BQInW7onPRFa2G8_?pid=ImgGn" height="80px" width="80px">
+            <span style="font-size:24px">CodeSensei</span>
+        </a>
+        <div class="collapse navbar-collapse mx-6 px-6" id="navbarNav">
+          <ul class="navbar-nav ms-auto" style="font-size:22px">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/index">Home</a>
+          </li>
+              <li class="nav-item">
+                  <a class="nav-link mx-1" href="about">About</a>
+              </li>
+              {% if session['username'] %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('Logout') }}">Logout</a>
+              </li>
+          {% endif %}
+          </ul>
+      </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 align="center">CodeSensei</h2>
+    <form action="/index" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="codingLanguage" style="font-size:20px">Select a coding language:</label>
+            <select class="form-control" id="codingLanguage" name="codingLanguage">
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="csharp">C#</option>
+                <option value="cpp">C++</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="userLevel" style="font-size:20px">Select your level:</label>
+            <select class="form-control" id="userLevel" name="userLevel">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-dark" style="font-size:15px">Start Learning</button>
+        <form method="POST" action="#">
+            <div class="form-group">
+                <label for="Chat" style="font-size:20px">Chat with Sensei:</label>
+                <textarea class="form-control" id="Chat" name="Chat" rows="3">{{ Chat }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-dark" style="font-size:15px">Chat With Sensei</button>
+            <div class="form-group">
+                <label for="result" style="font-size:20px">Result:</label>
+                <textarea class="form-control" id="result" placeholder="Sensei is here to help you."
+                          name="result" rows="7">{{ result or '' }}</textarea>
+            </div>
+        </form>
+        <script>
+            // Your existing script code here
+        </script>
+    </form>
+</div>
+<div class="footer">
+    <p>Follow us on:</p>
+    <div class="footer-icons">
+        <a href="mailto:sameerkhan2003a@gmail.com"><img src="https://th.bing.com/th/id/R.88d88f1872909358b97ffa695cb97b66?rik=A77az%2fwRYB%2bLrw&riu=http%3a%2f%2flogos-download.com%2fwp-content%2fuploads%2f2016%2f05%2fGmail_logo_icon.png&ehk=8gYQfqc8h6fYCXddKEQE%2blQ7004YVwPu1S2LSHmiUgE%3d&risl=&pid=ImgRaw&r=0" alt="Gmail" style="width:32px;height:22px;"></a>
+        <a href="https://twitter.com/your_twitter_handle"><img src="https://th.bing.com/th?id=OSK.50a4337ddb8f32c31afe1610d3d99f0b&w=102&h=102&c=7&o=6&oif=webp&dpr=1.3&pid=SANGAM" alt="Twitter" style="width:32px;height:22px;"></a>
+        <a href="https://www.facebook.com/your_facebook_page"><img src="https://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19757.png" alt="Facebook" style="width:32px;height:22px;"></a>
+    </div>
+    <p>&copy; 2023 Sameer Khan</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+            <script>
+            // Save to local storage when a language or level is selected
+document.getElementById('codingLanguage').addEventListener('change', function() {
+    localStorage.setItem('codingLanguage', this.value);
+  });
+  document.getElementById('userLevel').addEventListener('change', function() {
+    localStorage.setItem('userLevel', this.value);
+  });
+  
+  // Load from local storage when the page loads
+  window.onload = function() {
+    var codingLanguage = localStorage.getItem('codingLanguage');
+    var userLevel = localStorage.getItem('userLevel');
+    if (codingLanguage) {
+      document.getElementById('codingLanguage').value = codingLanguage;
+    }
+    if (userLevel) {
+      document.getElementById('userLevel').value = userLevel;
+    }
+  };
+  
+            $(document).ready(function(){
+              // Check if language and level are already submitted
+              var initialSubmit = false;
+            
+              $("#chatButton").click(function(e){
+                // Prevent default form submission
+                e.preventDefault();
+            
+                if (!initialSubmit) {
+                  // Submit language and level on first click
+                  $("#chatForm").submit();
+                  initialSubmit = true;
+                } else {
+                  // Send only chat data on subsequent clicks
+                  $.ajax({
+                    url: '/',
+                    type: "POST",
+                    data: { chat : $('#Chat').val() },
+                    success: function(response){
+                      $('#result').val(response);
+                    },
+                    error: function(xhr,errmsg,err) {
+                      console.log(xhr.status + ": " + xhr.responseText);
+                    }
+                  });
+                }
+              });
+            });
+            </script>
+            
+    
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
